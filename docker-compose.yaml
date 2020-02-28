@@ -1,0 +1,78 @@
+version: "3.7"
+
+services:
+  coord:
+    image: sequoiadb/sequoiadb:latest
+    hostname: coord
+    command: sh -c 'chmod +x /startup.sh; /startup.sh'
+    volumes:
+      - "./scripts/coord_startup.sh:/startup.sh"
+    environment:
+      ROLE: coord
+      COORD: coord:11810
+      CATALOG: catalog:11800
+      DATA: 'group1=data1:11820,data2:11820,data3:11820;group2=data1:11830,data2:11830,data3:11830;group3=data1:11840,data2:11840,data3:11840'
+    depends_on:
+      - catalog
+      - data1
+      - data2
+      - data3
+    links:
+      - catalog
+      - data1
+      - data2
+      - data3
+
+  catalog:
+    image: sequoiadb/sequoiadb:latest
+    hostname: catalog
+    command: sh -c 'chmod +x /startup.sh; /startup.sh'
+    volumes:
+      - "./scripts/startup.sh:/startup.sh"
+    environment:
+      ROLE: catalog
+ 
+  data1:
+    image: sequoiadb/sequoiadb:latest 
+    hostname: data1
+    command: sh -c 'chmod +x /startup.sh; /startup.sh'
+    volumes:
+      - "./scripts/startup.sh:/startup.sh"
+    environment:
+       ROLE: data1
+
+  data2:
+    image: sequoiadb/sequoiadb:latest
+    hostname: data2 
+    command: sh -c 'chmod +x /startup.sh; /startup.sh'
+    volumes:
+      - "./scripts/startup.sh:/startup.sh"
+    environment:
+      ROLE: data2
+
+  data3:
+    image: sequoiadb/sequoiadb:latest
+    hostname: data3
+    command: sh -c 'chmod +x /startup.sh; /startup.sh'
+    volumes:
+      - "./scripts/startup.sh:/startup.sh"
+    environment:
+      ROLE: data3
+
+  mysql:
+    image: sequoiadb/sequoiasql-mysql:latest
+    hostname: mysql
+    depends_on:
+      - coord
+    links:
+      - coord
+    command: sh -c 'chmod +x /startup.sh; /startup.sh'
+    volumes:
+      - "./scripts/mysql_startup.sh:/startup.sh"
+    ports:
+      - "3310:3310"
+    environment: 
+      ROLE: mysql
+      MYSQL_PORT: 3310
+      COORD_IP: coord
+      COORD_PORT: 11810
