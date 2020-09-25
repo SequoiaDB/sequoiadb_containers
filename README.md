@@ -1,5 +1,5 @@
-# SequoiaDB - 基于Docker容器的cluser部署教程
-为了方便快速的用户体验，SequoiaDB提供基于Docker的cluseter部署。   
+# SequoiaDB - 基于Docker容器的cluster部署教程
+为了方便快速的用户体验，SequoiaDB提供基于Docker的cluster部署。   
 本页介绍如何在Docker环境中部署SequoiaDB分布式集群。
 
 # 快速启动
