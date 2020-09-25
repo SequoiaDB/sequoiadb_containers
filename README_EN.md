@@ -28,7 +28,7 @@ You can quick start sequoiadb distributed cluster deployment with default config
 There are to options to download the required package.
 ###### Option 1. Clone this repo
 ```
-  git clone http://git.sequoiadb.com/mayuran.sub/sequoiadb_containers.git
+  git clone git@github.com:SequoiaDB/sequoiadb_containers.git
 ```
 
 ##### Option 2: Download the following files manually (keep the same directory structure)
