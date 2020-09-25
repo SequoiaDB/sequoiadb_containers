@@ -65,7 +65,7 @@ Docker compose是一个用于定义和部署在YAML文件中定义的多容器�
 有两个选项可以下载所需的软件包。   
 ##### 选项1：克隆此回购
 ```
-  git clone http://git.sequoiadb.com/mayuran.sub/sequoiadb_containers.git
+  git clone git@github.com:SequoiaDB/sequoiadb_containers.git
 ```
 
 ##### 选项2：手动下载以下文件（保留相同的目录结构)
