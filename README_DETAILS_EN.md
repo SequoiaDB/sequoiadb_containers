@@ -66,7 +66,7 @@ Sequoiadb cluster configruration is defined "sequoiadb_containers/docker-compose
 There are two options to download the required package.
 ###### Option 1. Clone this repo
 ```
-  git clone http://git.sequoiadb.com/mayuran.sub/sequoiadb_containers.git
+  git clone git@github.com:SequoiaDB/sequoiadb_containers.git
 ```
 
 ##### Option 2: Download the following files manually (keep the same directory structure)
